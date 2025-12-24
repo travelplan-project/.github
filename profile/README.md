@@ -11,7 +11,22 @@ O TravelPlan utiliza uma arquitetura baseada em micro-serviços e clientes indep
 2.  **Frontend Web (React):** Interface administrativa e de consulta rápida para desktop.
 3.  **Mobile (Android):** (Em migração) Aplicativo nativo para uso durante o percurso da viagem.
 
+## Arquitetura do Ecossistema TravelPlan
 
+O projeto utiliza uma estrutura **Centralizada na API**, onde o banco de dados nunca é acessado diretamente pelos aplicativos, garantindo segurança e integridade.
+
+| Camada | Tecnologia | Função | Status |
+| :--- | :--- | :--- | :--- |
+| **Backend** | Java / Spring Boot | Regras de negócio e persistência | Ativo |
+| **Frontend Web** | React / Tailwind v4 | Gestão administrativa e dashboard | Ativo |
+| **Mobile** | Android Nativo | Uso em trânsito e coleta de dados | Em Migração para API |
+
+### O fluxo de funcionamento:
+1. O usuário cadastra um veículo no **React**.
+2. O **React** envia um JSON via Axios para a **API**.
+3. A **API** salva no banco de dados.
+4. O **Android** faz uma requisição para a mesma **API** e exibe o novo veículo instantaneamente.
+   
 ---
 
 ## 📂 Repositórios da Organização
